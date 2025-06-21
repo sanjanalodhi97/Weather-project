@@ -4,10 +4,10 @@ import "./App.css";
 const App = () => {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
-  const [loading, setLoading] = useState(false); // ✅ ADD THIS LINE
+  const [loading, setLoading] = useState(false); 
 
 
-  const apiKey = "fc983c0c8fb1a7e25e25f12e7074098b"; // 👈 Yahan apni OpenWeatherMap wali key lagana
+  const apiKey = "fc983c0c8fb1a7e25e25f12e7074098b"; 
 
   const fetchWeather = async () => {
   if (!city) return;
@@ -25,8 +25,7 @@ const App = () => {
       setWeatherData({ error: "City not found. Please try again." });
     } else {
       setWeatherData(data);
-      setCity(""); // ✅ auto clear input
-    }
+      setCity(""); 
   } catch (err) {
     setWeatherData({ error: "Error fetching data!" });
   }
@@ -34,7 +33,7 @@ const App = () => {
   setLoading(false);
 };
 
-  // 🟢 Set background color based on weather condition
+
   const getBackgroundColor = () => {
     if (!weatherData || !weatherData.weather) return "#f0f8ff"; // default
     const condition = weatherData.weather[0].main.toLowerCase();
@@ -43,7 +42,7 @@ const App = () => {
     if (condition.includes("rain")) return "#a4b0be";
     if (condition.includes("clear")) return "#f9ca24";
     if (condition.includes("snow")) return "#ffffff";
-    return "#f0f8ff"; // default fallback
+    return "#f0f8ff";
   };
 
   return (
